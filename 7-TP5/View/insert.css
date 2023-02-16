@@ -1,0 +1,21 @@
+body {
+  
+  background-image: linear-gradient(294deg, #00DBDE 0%, #FC00FF 100%);  
+  }
+
+  .wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+.page-header, .page-footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.placement{
+  display: flex;
+  justify-content: center;
+  position: relative; 
+  top: 25em;
+}

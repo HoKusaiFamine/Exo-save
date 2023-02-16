@@ -1,0 +1,54 @@
+
+
+  
+  
+  
+  body {
+    background-color: #00DBDE;
+    background-image: linear-gradient(294deg, #00DBDE 0%, #FC00FF 100%);  
+  }
+  input:hover {
+    opacity: 0.2;
+  }
+  input {
+    padding: 15px 100px;
+    margin: 10px 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 8em; 
+    width: 25em; 
+    height: 20em; 
+  }  
+  .placement{
+    display: flex;
+    justify-content: center;
+  }
+  .insert {
+    display: flex;
+    justify-content: center;
+    position: relative; 
+    top: 1em;  
+  }
+  .select {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 8em;     
+  }
+  .update {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 14em;     
+  }
+  .delete {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20em;  
+  }

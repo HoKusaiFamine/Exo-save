@@ -1,0 +1,52 @@
+tr, td{  
+  justify-content: center;  
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 5em;
+  width: 20em;
+  border: 3px  solid #6495ed;
+  border-radius:31%;
+  background-color: rgb(232, 201, 109);
+}   
+.post{display: flex;
+  justify-content: space-around;
+}   
+.colorbtn {
+  background-color: aqua;
+  border-radius:35%;   
+}      
+.possitionBouton{
+  display: flex;
+  justify-content: center;
+}     
+
+/* pour placer les quatres table */
+.relatif{
+  position: relative;
+}
+.haut{
+  top: 450px;/*Elément décalé de 450px vers le bas p/r à une origine*/
+}
+.gauche{
+  right: 115px;/*Element décalé de 115px vers la gauchr p/r à une origine*/
+}
+.haut2{
+  top: 160px; right: 300px;/*Elément décalé de 300px vers le bas p/r à une origine*/
+}
+.haut3{
+  top: 125px;/*Elément décalé de 125px vers le bas p/r à une origine*/
+}
+.droite{
+  right: 0px;/*Element décalé de 0px vers la gauchr p/r à une origine*/
+}
+
+body { 
+background-image: url("saumon-poisson.jpg") ;
+background-size: cover;
+}     
+
+
+
+

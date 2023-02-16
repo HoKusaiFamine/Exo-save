@@ -1,0 +1,18 @@
+.logo {
+    background-image: url('../img/header.jpg');
+    display: flex;   
+    padding-bottom : 165px;
+    margin-left: 25%;
+    margin-right: 45%;       
+  }
+
+.img {
+    background-color: #000000;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/mort.jpg);
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    padding: 1em;
+    text-align: center;
+    padding-bottom : 565px;
+  }

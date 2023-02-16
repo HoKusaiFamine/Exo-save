@@ -1,0 +1,23 @@
+
+<div align="center">
+      <img src="../view/assets/img/destin.jpg"  width="75%" >      
+    </div>
+
+
+
+</div>
+<img src="../view/assets/img/destin.jpg"  width="75%" >      
+</div>
+background: url('../img/header.jpg');
+    display: flex;   
+    padding-bottom : 165px;
+    margin-left: 35px;
+
+
+    
+    <div align="center">
+        <img src="../view/assets/img/mort.jpg"  width="75%"><?php
+      session_start();
+      echo  $_SESSION['nom']." ".$_SESSION['nom']. ' vous etes imposable';?>
+      
+      </div>
