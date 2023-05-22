@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Eleve
+    
+{% endblock %}
+
+{% block body %}
+
+<div class="d-flex justify-content-center text-center row px-5  mx-1">
+    <h1 class="text-center my-5">Détails de l'élève</h1>
+<div class=" d-flex justify-content-center row">
+    <table class="table table-dark table-striped" >
+        <tbody>
+           <tr>
+                <th class="w-50" style="padding-left: 150px;">Id</div></th>
+                <td class="w-50" style="padding-left: 150px;"> {{ eleve.id }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Nom</th>
+                <td class="w-50" style="padding-left: 150px;">{{ eleve.nomEleve }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Prénom</th>
+                <td class="w-50" style="padding-left: 150px;">{{ eleve.prenomEleve }}</td>
+            </tr>
+         <tr>
+                <th class="w-50" style="padding-left: 150px;">E-Mail</th>
+                <td class="w-50" style="padding-left: 150px;">{{ eleve.emailEleve }}</td>
+            </tr>
+                <tr>
+                <th class="w-50" style="padding-left: 150px;">Téléphone</th>
+                <td class="w-50" style="padding-left: 150px;">{{ eleve.telephoneEleve }}</td>
+            </tr>
+           <tr>
+                <th class="w-50" style="padding-left: 150px;">Genre</th>
+                <td class="w-50" style="padding-left: 150px;">{{ eleve.sexeEleve }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Niveau d'étude</th>
+                <td class="w-50" style="padding-left: 150px;">{{ eleve.niveauEtude }}</td>
+            </tr>
+           <tr>
+                <th class="w-50" style="padding-left: 150px;">Dernier métier exércer</th>
+                <th class="w-50" style="padding-left: 150px;"> {{ eleve.metierExerce }} </th> 
+            </tr> 
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+        <a class="btn btn-primary mt-2" href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">Modifier</a>
+    </div>
+<div class="w-25 d-flex justify-content-center order-2">
+    <a class="btn btn-outline-primary mt-2" href="{{ path('app_eleve_index') }}">Retour à la liste</a>
+    </div>
+
+    
+    <div class="w-25 d-flex justify-content-center order-2">
+     {{ include('eleve/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
+  
+
+
+{% endblock %}

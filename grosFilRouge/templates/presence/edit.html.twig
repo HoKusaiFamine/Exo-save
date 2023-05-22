@@ -1,0 +1,29 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualiser la présence de l'élève
+{% endblock %}
+
+{% block body %}
+
+	{# titre #}
+	<div class="d-flex justify-content-center formulaire">
+		<h1>Actualiser la présence de l'élève</h1>
+	</div>
+	{# formulaire #}
+<div class="d-flex justify-content-center">
+		{{ include('presence/_form.html.twig', { button_label: 'Modifier' }) }}
+	</div>
+
+
+
+		{# Bouton de retour #}
+
+		<div class="d-flex justify-content-center order-2">
+		{{ include('presence/_delete_form.html.twig', { button_label: 'Modifier' }) }}
+	
+		<a class="btn btn-outline-primary mt-2" href="{{ path('app_presence_index') }}">Retour au profil</a>
+	</div>
+	
+	
+{% endblock %}

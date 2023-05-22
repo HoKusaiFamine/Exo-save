@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Utilisateur
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex justify-content-center formulaire">
+		<h1>Modifier vos information</h1>
+	</div>
+
+	{{ form_start(editprofilform) }}
+
+	{# ligne avec boutons retour valider supprimer #}
+
+	<div class="d-flex justify-content-center order-2">
+		{{ include('profile/_form.html.twig', { button_label: 'Modifier' }) }}
+	</div>
+	<div class=" d-flex justify-content-center order-1">
+		<a class="btn btn-outline-primary mt-2" href="{{ path('app_profile_show') }}">Retour au profil</a>
+	</div>
+	{# <div class="w-25 d-flex justify-content-center order-3">{{ include('profile/_form.html.twig', { button_label: 'Modifier' }) }}</div> #}
+
+</div></div>{{ form_end(editprofilform) }}{% endblock %}

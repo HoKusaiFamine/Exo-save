@@ -1,0 +1,65 @@
+{% extends 'basemobile.html.twig' %}
+
+    {% block body %}
+      
+      <h1 class="my-5 text-center fs-mobile">Prends un cours !</h1>
+      <h1 class="my-5 text-center fs-mobile2">Validation de la présence</h1>
+      {% set sessionId = app.request.query.get('id') %}
+        {% set _session = app.session %}
+        {% set _ = _session.set('session_id', sessionId) %}
+
+
+          {% if app.request.get('error') == 'eleve_not_found' %}
+            <div class="fs-3 alert alert-primary w-50 mx-auto text-center mt-5" role="alert">
+              Aucun élève trouvé pour le nom donné.
+            </div>
+          {% endif %}
+
+
+
+      <form method="POST" action="{{ path('app_presence_validation_submit') }}">
+        <div style="height:5em" class="text-center">
+        <div class="form-group">
+          <label class="fs-1" for="name">Nom :</label>
+          <input type="text" id="name" class="form-perso fs-4 mb-5" name="nom_eleve" required>
+        </div>
+        </div>
+<div style="height: 30em">
+        <div class="btn-group-vertical btn-group-lg checkbox-perso d-flex mx-auto mt-5 " role="group"   aria-label="Vertical radio toggle button group">
+          <input type="radio" class="btn-check my-auto" name="status" id="vbtn-radio1" value="present" autocomplete="off" checked>
+          <label class="btn fs-1 d-flex  align-items-center btn-outline-primary justify-content-center" for="vbtn-radio1">Présent</label>
+          <input type="radio" class="btn-check" name="status" id="vbtn-radio2"  value="absent" autocomplete="off">
+          <label class="btn fs-1 d-flex  align-items-center btn-outline-primary justify-content-center" for="vbtn-radio2">Absent</label>
+          <input type="radio" class="btn-check" name="status" value="absent-justifie" id="vbtn-radio3" autocomplete="off">
+          <label class="btn fs-1 d-flex  align-items-center btn-outline-primary justify-content-center" for="vbtn-radio3">Absence justifiée</label>
+        </div>
+</div>
+
+        {# <div class="form-group">
+          <label for="status">Statut :</label>
+          <div>
+            <input type="radio" id="status_present" name="status" value="present" required>
+            <label for="status_present">Présent</label>
+          </div>
+          <div>
+            <input type="radio" id="status_absent" name="status" value="absent" required>
+            <label for="status_absent">Absent</label>
+          </div>
+          <div>
+            <input type="radio" id="status_justified" name="status" value="absent-justifie" required>
+            <label for="status_justified">Absence justifiée</label>
+          </div>
+        </div> #}
+    
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn fs-1 btn-primary">Valider</button>
+        </div>
+      </form>
+
+      {% if app.request.get('error') == 'ok' %}
+        <div class="fs-3 alert alert-primary w-50 mx-auto text-center mt-5" role="alert">
+          Votre choix a été validé
+        </div>
+      {% endif %}
+      
+    {% endblock %}

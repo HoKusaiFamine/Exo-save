@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block body %}
+
+<div class="d-flex justify-content-center text-center row px-5  mx-1">
+    <h1 class="text-center my-5">Utilisateur</h1>
+<div class=" d-flex justify-content-center row">
+    <table class="table table-dark table-striped" >
+        <tbody>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Nom utilisateur</th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.nomUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Prénom utilisateur</th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.prenomUtilisateur }}</td>
+            </tr>
+            {# <tr>
+                <th class="w-50" style="padding-left: 150px;">Id</div></th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.id }}</td>
+            </tr> #}
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">E-Mail</th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.email }}</td>
+            </tr>
+            <tr>
+                <th class="w-50" style="padding-left: 150px;">Roles</th>
+                <td class="w-50" style="padding-left: 150px;">
+                    {% if utilisateur.roles == 	["ROLE_ADMIN","ROLE_USER"] %}
+                        Administrateur
+                    {% else %}
+                        Professeur
+                    {% endif %}
+                    {# {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }} #}
+                    </td>
+            </tr>
+             {# <tr>
+                <th class="w-50" style="padding-left: 150px;">Mot de passe</th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.password }}</td>
+            </tr> #}
+          
+         <tr>
+                <th class="w-50" style="padding-left: 150px;">Numeros de téléphone</th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.telephoneUtilisateur }}</td>
+            </tr>
+             <tr>
+                <th class="w-50" style="padding-left: 150px;">Genre</th>
+                <td class="w-50" style="padding-left: 150px;">{{ utilisateur.sexeUtilisateur }}</td>
+            </tr>
+    {#            <tr>
+                <th class="w-50" style="padding-left: 150px;">Nom du professeur</th>
+                <th class="w-50" style="padding-left: 150px;"> {{ cour.utilisateurNom }} </th> 
+            </tr> #}
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+        <a class="btn btn-sm btn-primary mx-1" href="{{ path('app_utilisateur_edit_admin', { id: utilisateur.id }) }}">Editer</a>
+    </div>
+<div class="w-25 d-flex justify-content-center order-2">
+    <a class="btn btn-outline-primary mt-2" href="{{ path('app_utilisateur_index') }}">Retour à la liste</a>
+    </div>
+
+   
+    {# <div class="w-25 d-flex justify-content-center order-2">
+    {{ include('utilisateur/_delete_form.html.twig')}}
+    </div> #}
+    </div>
+    </div>
+
+
+    {# <a href="{{ path('app_utilisateur_index') }}">back to list</a>
+
+    <a href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
+
+    {{ include('utilisateur/_delete_form.html.twig') }} #}
+{% endblock %}

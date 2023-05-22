@@ -1,0 +1,63 @@
+{% extends 'baseCoDeco.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block body %}
+<div class="mt-5 p-5 text-center" 
+{#
+This is a demo template for the authentication form. Please consider overwriting this with your own template,
+especially when you're using different route names than the ones used here.
+#}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+{# Authentication errors #}
+{% if authenticationError %}
+<p class="fs-2">Le code d'authentification est incorrect</p>
+{% endif %}
+
+{# Let the user select the authentication method #}
+{% if availableTwoFactorProviders|length > 1 %}
+    <p>{{ "choose_provider"|trans({}, 'SchebTwoFactorBundle') }}:
+        {% for provider in availableTwoFactorProviders %}
+            <a href="{{ path("2fa_login", {"preferProvider": provider}) }}">{{ provider }}</a>
+        {% endfor %}
+    </p>
+{% endif %}
+
+{# Display current two-factor provider #}
+<p class="fs-2">Entrez le code recu par mail</p>
+
+<form class="form" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post">
+    <p class="widget">
+        <input
+            id="_auth_code"
+            type="text"
+            name="{{ authCodeParameterName }}"
+            
+            autocomplete="one-time-code"
+            autofocus
+            {#
+            https://www.twilio.com/blog/html-attributes-two-factor-authentication-autocomplete
+            If your 2fa methods are using numeric codes only, add these attributes for better user experience:
+            inputmode="numeric"
+            pattern="[0-9]*"
+            #}
+        />
+    </p>
+
+    {% if displayTrustedOption %}
+        <p class="widget"><label for="_trusted"><input id="_trusted" type="checkbox" name="{{ trustedParameterName }}" /> {{ "trusted"|trans({}, 'SchebTwoFactorBundle') }}</label></p>
+    {% endif %}
+    {% if isCsrfProtectionEnabled %}
+        <input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">
+    {% endif %}
+    
+</form>
+<div class="d-flex justify-content-center">
+{# The logout link gives the user a way out if they can't complete two-factor authentication #}
+<p class="cancel m-2"><a href="{{ logoutPath }}" class="btn btn-danger">Retour</a></p>
+    <p class="submit m-2"><input type="submit" class=" btn btn-primary" value="Valider" /></p>
+</div>
+</div>
+{% endblock %}

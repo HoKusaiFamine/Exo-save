@@ -1,0 +1,126 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}
+  Nouveau Cours
+{% endblock %}
+
+{% block body %} <div class="d-flex justify-content-center text-center row px-5  mx-1"> 
+  <h1 class="text-center m-5">Créer un nouveau cours</h1>
+
+  {{ form_start(coursForm) }}
+  
+
+  <div class="d-flex justify-content-around m-5 mt-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.max_eleves) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.description) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.libelle) }}</div>
+  </div>
+
+  <div class="d-flex justify-content-around m-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.date_debut) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.heure_debut) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.date_hebdomadaire) }}</div>
+  </div>
+
+  <div class="d-flex justify-content-around m-5">
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.date_fin) }}</div>
+    <div class="w-25 card1 m-2 p-2">{{ form_row(coursForm.heure_fin) }}</div>   
+    {% if is_granted('ROLE_ADMIN') %}
+      <div class="w-25 card1 bg-custom-1 m-2 p-2">{{ form_row(coursForm.utilisateur) }}</div>
+    {% endif %}
+ 
+  </div>
+
+ 
+  <div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+      <button type="submit" class="btn btn-primary mt-2">Créer cours</button>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-1">
+      <a class="btn btn-outline-primary mt-2" href="{{ path('app_cours_index') }}">Retour à la liste</a>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-2"></div>
+  </div>
+  {{ form_end(coursForm) }}
+{% endblock %} #}
+
+
+
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Créer un nouvel élève
+{% endblock %}
+
+
+
+{% block body %}
+	
+		<div class="d-flex justify-content-center formulaire">
+			<h1>Créer un cours</h1>
+		</div>
+
+		
+			{{ form_start(coursForm) }}
+     
+			<div class="d-flex justify-content-center">
+				<div>
+        <div class=" input-group-text-2">
+		
+						<span class="input-group-text w-50 d-flex justify-content-center">Nombre d'élève max.</span>
+						<div class=" w-50 d-flex justify-content-center">{{ form_row(coursForm.max_eleves) }}</div>
+					</div>
+				<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Description du cours</span>
+						<div class=" w-50 d-flex justify-content-center">{{ form_row(coursForm.description) }}</div>
+					</div>
+				
+					<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Libellé</span>
+						<div class=" w-50 d-flex justify-content-center">{{ form_row(coursForm.libelle) }}</div>
+					</div>
+			 				<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Date de la première session</span>
+						<div class=" w-50 d-flex justify-content-center">{{ form_row(coursForm.date_debut) }}</div>
+					</div>
+				
+			<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Date de la derniere session</span>
+						<div class=" w-50 d-flex justify-content-center">{{ form_row(coursForm.date_fin) }}</div>
+					</div>
+					<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Heure de debut du cours</span>
+						<div class="w-50 d-flex justify-content-center">{{ form_row(coursForm.heure_debut) }}</div>
+					</div>
+					
+						<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Heure de fin du cours</span>
+						<div class="w-50 d-flex justify-content-center">{{ form_row(coursForm.heure_fin) }}</div>
+					</div>
+          	<div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Date hebdomadaires</span>
+						<div class="w-50 d-flex justify-content-center">{{ form_row(coursForm.date_hebdomadaire) }}</div>
+					</div>
+
+           {% if is_granted('ROLE_ADMIN') %}
+       <div class="input-group-text-2">
+						<span class="input-group-text w-50 d-flex justify-content-center">Professeur en charge du cours</span>
+						<div class="w-50 d-flex justify-content-center">{{ form_row(coursForm.utilisateur) }}</div>
+					</div>
+        {% endif %}
+          	
+           <div class="d-flex justify-content-around">
+    <div class="w-25 d-flex justify-content-center order-3">
+      <button type="submit" class="btn btn-primary mt-2">Créer cours</button>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-1">
+      <a class="btn btn-outline-primary mt-2" href="{{ path('app_cours_index') }}">Retour à la liste</a>
+    </div>
+    <div class="w-25 d-flex justify-content-center order-2"></div>
+  </div>
+		
+  </div>
+
+{{ form_end(coursForm) }}
+{% endblock %} 

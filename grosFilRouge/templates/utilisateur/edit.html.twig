@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Utilisateur{% endblock %}  {# Définit le titre de la page #}
+
+{% block body %}
+    <h1>Edit Utilisateur</h1>  {# Titre de niveau 1 pour la page #}
+
+    form de base  {# Commentaire non pris en compte par le code #}
+    {{ include('utilisateur/_formEditUser.html.twig', {'button_label': 'Update'}) }}  {# Inclut le contenu de '_formEditUser.html.twig', en transmettant une variable 'button_label' avec la valeur 'Update' #}
+
+    <a href="{{ path('app_utilisateur_index') }}">back to list</a>  {# Lien renvoyant à la page de liste des utilisateurs. La fonction 'path()' génère l'URL pour la route 'app_utilisateur_index'. #}
+
+    {{ include('utilisateur/_delete_form.html.twig') }} {# Inclut le contenu de '_delete_form.html.twig', qui contient probablement un formulaire pour supprimer l'utilisateur#}
+{% endblock %}
